@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/localWeatherFragment">
+
+    <fragment
+        android:id="@+id/localWeatherFragment"
+        android:name="com.roh.idus.localweather.LocalWeatherFragment"
+        android:label="fragment_local_weather"
+        tools:layout="@layout/fragment_local_weather" />
+</navigation>
