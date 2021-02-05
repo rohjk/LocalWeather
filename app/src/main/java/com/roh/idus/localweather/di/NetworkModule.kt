@@ -1,7 +1,7 @@
 package com.roh.idus.localweather.di
 
-import android.os.Build
 import com.roh.idus.localweather.BuildConfig
+import com.roh.idus.localweather.date.network.WeatherServiceApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,6 +30,11 @@ class NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
+    }
+
+    @Provides
+    fun provideWeatherServiceApi(retrofit: Retrofit): WeatherServiceApi {
+        return retrofit.create(WeatherServiceApi::class.java)
     }
 
 }
