@@ -1,17 +1,16 @@
 package com.roh.idus.localweather.di
 
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.ActivityScoped
 import io.reactivex.disposables.CompositeDisposable
 
 @Module
-@InstallIn(ViewModelComponent::class)
+@InstallIn(ActivityComponent::class)
 class RxModule {
-    @ViewModelScoped
     @Provides
+    @ActivityScoped
     fun provideCompositeDisposable() = CompositeDisposable()
 }

@@ -5,15 +5,15 @@ import com.roh.idus.localweather.date.datasource.WeatherServerDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.ActivityScoped
 
 @Module
-@InstallIn(ViewModelComponent::class)
+@InstallIn(ActivityComponent::class)
 interface DataSourceModule {
 
     @Binds
-    @ViewModelScoped
+    @ActivityScoped
     fun bindWeatherServerDataSource(impl: WeatherServerDataSource): WeatherDataSource
 
 }
