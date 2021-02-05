@@ -13,18 +13,23 @@ class LocalWeatherViewModel @ViewModelInject constructor(
         @MainScheduler private val scheduler: Scheduler,
         private val disposable: CompositeDisposable
 ) : ViewModel() {
-    init {
-    }
 
     fun refresh() {
         getWeathers()
     }
 
     private fun getWeathers() {
-        weatherRepository.getWeathersBySearch("se").observeOn(scheduler).subscribe({
-            Log.d("Jake", it.size.toString())
-        }, {
-            Log.e("Jake", it.message.toString())
-        })
+        disposable.add(
+                weatherRepository.getWeathersBySearch("se").observeOn(scheduler).subscribe({
+                    Log.d("Jake", it.size.toString())
+                }, {
+                    Log.e("Jake", it.message.toString())
+                })
+        )
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        disposable.clear()
     }
 }

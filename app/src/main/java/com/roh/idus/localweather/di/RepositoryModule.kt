@@ -1,6 +1,5 @@
 package com.roh.idus.localweather.di
 
-import android.app.Activity
 import com.roh.idus.localweather.date.repository.WeatherRepositoryImpl
 import com.roh.idus.localweather.domain.WeatherRepository
 import dagger.Binds
@@ -13,8 +12,8 @@ import dagger.hilt.android.scopes.ActivityScoped
 @InstallIn(ActivityComponent::class)
 interface RepositoryModule {
 
-    @Binds
     @ActivityScoped
+    @Binds
     fun bindWeatherRepository(impl: WeatherRepositoryImpl): WeatherRepository
 
 }

@@ -10,7 +10,9 @@ import io.reactivex.disposables.CompositeDisposable
 @Module
 @InstallIn(ActivityComponent::class)
 class RxModule {
-    @Provides
+
     @ActivityScoped
+    @Provides
     fun provideCompositeDisposable() = CompositeDisposable()
+
 }

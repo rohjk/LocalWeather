@@ -12,8 +12,8 @@ import dagger.hilt.android.scopes.ActivityScoped
 @InstallIn(ActivityComponent::class)
 interface DataSourceModule {
 
-    @Binds
     @ActivityScoped
+    @Binds
     fun bindWeatherServerDataSource(impl: WeatherServerDataSource): WeatherDataSource
 
 }

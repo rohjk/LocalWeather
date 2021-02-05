@@ -32,6 +32,7 @@ class NetworkModule {
             .build()
     }
 
+    @Singleton
     @Provides
     fun provideWeatherServiceApi(retrofit: Retrofit): WeatherServiceApi {
         return retrofit.create(WeatherServiceApi::class.java)
