@@ -3,6 +3,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="temp">%s°C</string>
-    <string name="humidity">%s%%</string>
+    <string name="local">Local</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+
+    <string name="temp">%.1f°C</string>
+    <string name="humidity">%d%%</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.roh.idus.localweather.viewmodel
+package com.roh.idus.localweather.localweather
 
 import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject

@@ -16,5 +16,5 @@ class WeatherMapper @Inject constructor() {
                 )
             }
 
-    private fun getIconUri(iconType: String) = BuildConfig.BASE_HOST + "static/img/weather/${iconType}.svg"
+    private fun getIconUri(iconType: String) = BuildConfig.BASE_HOST + "static/img/weather/png/64/${iconType}.png"
 }

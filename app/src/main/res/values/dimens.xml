@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="item_background_stroke">1dp</dimen>
+    <dimen name="item_background_stroke">0.5dp</dimen>
 
-    <dimen name="padding_normal">5dp</dimen>
+    <dimen name="padding_normal">10dp</dimen>
 
     <dimen name="margin_normal">10dp</dimen>
+
+    <dimen name="list_header_height">50dp</dimen>
+
+    <dimen name="weather_list_weight_sum">7</dimen>
+    <dimen name="weather_list_weight_local">1</dimen>
+    <dimen name="weather_list_weight_today">3</dimen>
+    <dimen name="weather_list_weight_tomorrow">3</dimen>
 </resources>

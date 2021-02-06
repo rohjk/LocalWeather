@@ -4,4 +4,6 @@
     <stroke
         android:width="@dimen/item_background_stroke"
         android:color="@color/item_background_line" />
+
+    <solid android:color="@color/list_item_header_background"/>
 </shape>

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/localWeatherFragment"
-        android:name="com.roh.idus.localweather.LocalWeatherFragment"
+        android:name="com.roh.idus.localweather.localweather.LocalWeatherFragment"
         android:label="fragment_local_weather"
         tools:layout="@layout/fragment_local_weather" />
 </navigation>

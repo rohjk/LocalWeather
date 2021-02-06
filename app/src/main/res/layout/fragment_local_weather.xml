@@ -2,16 +2,20 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".LocalWeatherFragment">
+    tools:context=".localweather.LocalWeatherFragment">
 
     <data>
 
         <variable
             name="viewModel"
-            type="com.roh.idus.localweather.viewmodel.LocalWeatherViewModel" />
+            type="com.roh.idus.localweather.localweather.LocalWeatherViewModel" />
+        <variable
+            name="adapter"
+            type="com.roh.idus.localweather.localweather.adapter.WeatherInfoAdapter" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_margin="@dimen/margin_normal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:onRefreshListener="@{() -> viewModel.refresh()}"
@@ -19,7 +23,10 @@
 
        <androidx.recyclerview.widget.RecyclerView
            android:layout_width="match_parent"
-           android:layout_height="match_parent"/>
+           android:layout_height="match_parent"
+           app:adapter="@{adapter}"
+           app:adapterWeatherInfoList="@{viewModel.weatherInfos}"
+           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
