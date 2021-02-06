@@ -3,7 +3,7 @@ buildscript {
     ext{
         kotlin_version = "1.4.21"
         hiltVersion = '2.28.3-alpha'
-        hiltViewModelVersion = '1.0.0-alpha03'
+        hiltViewModelVersion = '1.0.0-alpha02'
         retrofitVersion = "2.9.0"
         gsonVersion = "2.8.6"
         fragmentKtxVersion = "1.2.5"

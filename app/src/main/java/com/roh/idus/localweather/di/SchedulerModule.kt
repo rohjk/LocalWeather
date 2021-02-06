@@ -3,6 +3,7 @@ package com.roh.idus.localweather.di
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.components.SingletonComponent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -15,7 +16,7 @@ annotation class MainScheduler
 annotation class IOScheduler
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ApplicationComponent::class)
 class SchedulerModule {
 
     @Singleton
