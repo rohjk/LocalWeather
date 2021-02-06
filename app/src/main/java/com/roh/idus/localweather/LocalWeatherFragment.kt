@@ -13,22 +13,19 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class LocalWeatherFragment : Fragment() {
 
-    private lateinit var binding: FragmentLocalWeatherBinding
-
     private val viewModel: LocalWeatherViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        this.binding = FragmentLocalWeatherBinding.inflate(inflater, container, false)
+        val binding = FragmentLocalWeatherBinding.inflate(inflater, container, false)
+        binding.apply {
+            lifecycleOwner = this@LocalWeatherFragment
+            viewModel = this@LocalWeatherFragment.viewModel
+        }
         viewModel.search("se")
         return binding.root
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.refresh()
     }
 
 }

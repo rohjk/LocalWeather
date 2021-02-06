@@ -19,7 +19,7 @@ class LocalWeatherViewModel @ViewModelInject constructor(
 
     private val _search = MutableLiveData<String>()
 
-    private val _weatherInfos = MutableLiveData<List<WeatherInfo>>()
+    private val _weatherInfos = MutableLiveData<List<WeatherInfo>>(emptyList())
     val weatherInfos: LiveData<List<WeatherInfo>>
         get() = _weatherInfos
 
@@ -47,10 +47,10 @@ class LocalWeatherViewModel @ViewModelInject constructor(
     }
 
     private fun getWeathers() {
-        _search.value?.let {
+        _search.value?.let { search ->
             _dataLoading.value = true
             disposable.add(
-                weatherRepository.getWeathersBySearch("se").observeOn(scheduler).doFinally {
+                weatherRepository.getWeathersBySearch(search).observeOn(scheduler).doFinally {
                     _dataLoading.value = false
                 }.subscribe({
                     _weatherInfos.value = it
