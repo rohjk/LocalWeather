@@ -22,6 +22,7 @@ class LocalWeatherFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         this.binding = FragmentLocalWeatherBinding.inflate(inflater, container, false)
+        viewModel.search("se")
         return binding.root
     }
 
