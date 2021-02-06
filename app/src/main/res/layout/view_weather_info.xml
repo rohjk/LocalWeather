@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.WeatherInfoView" >
+
+    <data>
+        <variable
+            name="weather"
+            type="com.roh.idus.localweather.domain.Weather" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/infoContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_normal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/statusIcon"
+            app:layout_constraintEnd_toEndOf="parent" >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/statusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{weather.state}"
+                style="@style/text_body"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Hevy Rain"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/currentTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:text="@{@string/temp(weather.temp)}"
+                android:textColor="@{weather.temp >= 0? @color/temp_degree : @color/temp_degree_below_zero}"
+                style="@style/text_metadata"
+                app:layout_constraintTop_toBottomOf="@id/statusText"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/currentHumidity"
+                tools:text="4°C"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/currentHumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:text="@{@string/humidity(weather.humidity)}"
+                style="@style/text_metadata"
+                app:layout_constraintBottom_toBottomOf="@+id/currentTemp"
+                app:layout_constraintStart_toEndOf="@+id/currentTemp"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="93%"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/statusIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/infoContainer"
+            app:imageFromUrl="@{weather.icon}"
+            tools:src="@mipmap/ic_launcher"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

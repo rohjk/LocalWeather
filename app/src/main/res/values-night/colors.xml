@@ -8,8 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="item_background_stroke">@color/black</color>
-
-    <color name="temp_degree">#FFFF0000</color>
-    <color name="temp_degree_below_zero">#FF0000FF</color>
+    <color name="item_background_stroke">@color/white</color>
 </resources>

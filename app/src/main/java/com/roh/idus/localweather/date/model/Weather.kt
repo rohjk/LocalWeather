@@ -10,7 +10,7 @@ data class Weather (
     @SerializedName("weather_state_abbr")
     val icon: String,
     @SerializedName("the_temp")
-    val temp: String,
+    val temp: Double,
     @SerializedName("humidity")
-    val humidity: String,
+    val humidity: Int,
 )

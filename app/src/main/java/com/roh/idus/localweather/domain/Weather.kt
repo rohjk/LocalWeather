@@ -4,6 +4,6 @@ data class Weather (
     val id: Long,
     val state: String,
     val icon: String,
-    val temp: String,
-    val humidity: String,
+    val temp: Double,
+    val humidity: Int,
 )
