@@ -3,8 +3,8 @@ package com.roh.idus.localweather.localweather.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.roh.idus.localweather.databinding.ItemWeatherListBinding
 import com.roh.idus.localweather.databinding.ItemWeatherListHeaderBinding
+import com.roh.idus.localweather.databinding.ItemWeatherListItemBinding
 import com.roh.idus.localweather.domain.WeatherInfo
 import com.roh.idus.localweather.localweather.WeatherInfoViewModel
 
@@ -28,7 +28,7 @@ class WeatherInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    class WeatherInfoViewHolder constructor(val binding: ItemWeatherListBinding) :
+    class WeatherInfoViewHolder constructor(val binding: ItemWeatherListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: WeatherInfo) {
             binding.apply {
@@ -40,7 +40,7 @@ class WeatherInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         companion object {
             fun from(parent: ViewGroup): WeatherInfoViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemWeatherListBinding.inflate(layoutInflater, parent, false)
+                val binding = ItemWeatherListItemBinding.inflate(layoutInflater, parent, false)
                 return WeatherInfoViewHolder(binding)
             }
         }
@@ -88,16 +88,8 @@ class WeatherInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     sealed class DataItem {
-
-        data class weatherInfoItem(val weatherInfo: WeatherInfo) : DataItem() {
-            //override val id = weatherInfo.locationId
-        }
-
-        data class Header(val headerId: Long = System.currentTimeMillis()) : DataItem() {
-            //override val id = headerId
-        }
-
-        //abstract val id: Long
+        data class weatherInfoItem(val weatherInfo: WeatherInfo) : DataItem()
+        data class Header(val id: Long = System.currentTimeMillis()) : DataItem()
     }
 
 }
