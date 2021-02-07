@@ -16,7 +16,7 @@ class WeatherRepositoryImpl @Inject constructor(
 ) : WeatherRepository {
 
     override fun getWeather(search: String): Single<List<WeatherInfo>> {
-        return getLocations(search).flatMapIterable { it }.flatMap { location ->
+        return getLocations(search).flatMapIterable { it }.concatMapEager { location ->
             getWeathers(location.id)
         }.flatMap {
             Observable.just(weatherInfoMapper.transform(it))
