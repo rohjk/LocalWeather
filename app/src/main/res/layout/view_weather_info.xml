@@ -8,7 +8,7 @@
 
         <variable
             name="weather"
-            type="com.roh.idus.localweather.domain.Weather" />
+            type="com.roh.idus.localweather.domain.model.Weather" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
             android:id="@+id/infoContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_normal"
+            android:layout_marginLeft="@dimen/margin_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/statusIcon"
@@ -55,7 +55,7 @@
                 style="@style/text_bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_normal"
+                android:layout_marginLeft="@dimen/margin_small"
                 android:text="@{@string/humidity(weather.humidity)}"
                 app:layout_constraintBottom_toBottomOf="@+id/currentTemp"
                 app:layout_constraintEnd_toEndOf="parent"
