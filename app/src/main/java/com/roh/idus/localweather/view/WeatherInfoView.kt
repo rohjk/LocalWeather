@@ -1,26 +1,23 @@
 package com.roh.idus.localweather.view
 
 import android.content.Context
+import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import androidx.constraintlayout.widget.ConstraintLayout
+import android.widget.RelativeLayout
 import com.roh.idus.localweather.databinding.ViewWeatherInfoBinding
 import com.roh.idus.localweather.domain.Weather
 
 class WeatherInfoView constructor(
     context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : ConstraintLayout(context, attrs, defStyleAttr) {
-
-    constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+    attrs: AttributeSet? = null
+) : RelativeLayout(context, attrs) {
 
     private val binding: ViewWeatherInfoBinding
 
     init {
-        this.binding = ViewWeatherInfoBinding.inflate(LayoutInflater.from(context))
-        addView(binding.root)
+        val inflater = LayoutInflater.from(context)
+        this.binding = ViewWeatherInfoBinding.inflate(inflater, this, true)
     }
 
     fun setWeather(weather: Weather) {
