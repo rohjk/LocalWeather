@@ -26,9 +26,9 @@ class LocalWeatherViewModel @ViewModelInject constructor(
     private val _dataLoading = MutableLiveData<Boolean>()
     val dataLoading: LiveData<Boolean> = _dataLoading
 
-    private val _snackbarText = MutableLiveData<String>()
-    val snackbarText: LiveData<String>
-        get() = _snackbarText
+    private val _toastText = MutableLiveData<String>()
+    val toastText: LiveData<String>
+        get() = _toastText
 
 
     fun search(search: String) {
@@ -54,8 +54,9 @@ class LocalWeatherViewModel @ViewModelInject constructor(
                     _dataLoading.value = false
                 }.subscribe({
                     _weatherInfos.value = it
-                }, {
-                    Log.e("Jake", it.message.toString())
+                }, { error ->
+                    Log.e("Jake", "Failure to get Weather : ${error.message.toString()}")
+                    _toastText.value = error.message
                 })
             )
         }

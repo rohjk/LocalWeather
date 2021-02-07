@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import com.roh.idus.localweather.databinding.FragmentLocalWeatherBinding
 import com.roh.idus.localweather.localweather.adapter.WeatherInfoAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,8 +28,17 @@ class LocalWeatherFragment : Fragment() {
             viewModel = this@LocalWeatherFragment.viewModel
             adapter = this@LocalWeatherFragment.adapter
         }
+
+        subscribeUI()
+
         viewModel.search("se")
         return binding.root
+    }
+
+    private fun subscribeUI() {
+        viewModel.toastText.observe(viewLifecycleOwner) { message ->
+            Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+        }
     }
 
 }
