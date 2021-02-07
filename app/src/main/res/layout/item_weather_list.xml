@@ -27,7 +27,6 @@
             style="@style/weather_list_item"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
             android:layout_weight="3"
             app:weather="@{viewModel.todayWeather}" />
 
@@ -37,7 +36,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:foregroundGravity="center"
             app:weather="@{viewModel.tomorowWeather}" />
 
 
