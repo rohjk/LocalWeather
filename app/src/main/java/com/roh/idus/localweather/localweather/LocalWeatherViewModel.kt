@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.roh.idus.localweather.di.MainScheduler
-import com.roh.idus.localweather.domain.WeatherInfo
+import com.roh.idus.localweather.domain.model.WeatherInfo
 import com.roh.idus.localweather.domain.WeatherRepository
 import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
@@ -50,7 +50,7 @@ class LocalWeatherViewModel @ViewModelInject constructor(
         _search.value?.let { search ->
             _dataLoading.value = true
             disposable.add(
-                weatherRepository.getWeathersBySearch(search).observeOn(scheduler).doFinally {
+                weatherRepository.getWeather(search).observeOn(scheduler).doFinally {
                     _dataLoading.value = false
                 }.subscribe({
                     _weatherInfos.value = it

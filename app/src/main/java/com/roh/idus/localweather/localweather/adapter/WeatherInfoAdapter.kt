@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.roh.idus.localweather.databinding.ItemWeatherListHeaderBinding
 import com.roh.idus.localweather.databinding.ItemWeatherListItemBinding
-import com.roh.idus.localweather.domain.WeatherInfo
+import com.roh.idus.localweather.domain.model.WeatherInfo
 import com.roh.idus.localweather.localweather.WeatherInfoViewModel
 
 private val ITEM_VIEW_TYPE_HEADER = 0

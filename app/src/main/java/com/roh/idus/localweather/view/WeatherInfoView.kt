@@ -1,12 +1,11 @@
 package com.roh.idus.localweather.view
 
 import android.content.Context
-import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.RelativeLayout
 import com.roh.idus.localweather.databinding.ViewWeatherInfoBinding
-import com.roh.idus.localweather.domain.Weather
+import com.roh.idus.localweather.domain.model.Weather
 
 class WeatherInfoView constructor(
     context: Context,

@@ -1,4 +1,4 @@
-package com.roh.idus.localweather.domain
+package com.roh.idus.localweather.domain.model
 
 data class Weather (
     val id: Long,

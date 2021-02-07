@@ -1,7 +1,8 @@
 package com.roh.idus.localweather.domain
 
+import com.roh.idus.localweather.domain.model.WeatherInfo
 import io.reactivex.Single
 
 interface WeatherRepository {
-    fun getWeathersBySearch(search: String): Single<List<WeatherInfo>>
+    fun getWeather(search: String): Single<List<WeatherInfo>>
 }

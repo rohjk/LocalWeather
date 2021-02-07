@@ -25,7 +25,7 @@ class WeatherServerDataSource @Inject constructor(
         }
     }
 
-    override fun getWeathers(id: Long): Observable<WeatherResponse> {
+    override fun getWeatherInfo(id: Long): Observable<WeatherResponse> {
        return weatherServiceApi.getWeather(id).subscribeOn(scheduler).flatMap { response ->
            if (response.isSuccessful) {
                response.body()?.let {

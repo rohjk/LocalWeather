@@ -5,7 +5,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.roh.idus.localweather.domain.WeatherInfo
+import com.roh.idus.localweather.domain.model.WeatherInfo
 import com.roh.idus.localweather.localweather.adapter.WeatherInfoAdapter
 
 @BindingAdapter("imageFromUrl")
