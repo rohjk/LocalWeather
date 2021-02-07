@@ -24,6 +24,7 @@
 
         <com.roh.idus.localweather.view.WeatherInfoView
             style="@style/weather_list_item"
+            android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
@@ -32,6 +33,7 @@
 
         <com.roh.idus.localweather.view.WeatherInfoView
             style="@style/weather_list_item"
+            android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
