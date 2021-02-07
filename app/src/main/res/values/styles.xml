@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="custom_toolbar">
+        <item name="background">@android:color/transparent</item>
+        <item name="titleTextColor">@android:color/black</item>
+        <item name="elevation">4dp</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+    </style>
+
     <style name="text_normal">
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">11sp</item>
