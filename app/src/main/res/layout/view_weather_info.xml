@@ -27,7 +27,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/statusText"
-                style="@style/text_normal"
+                style="@style/text_bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{weather.state}"
