@@ -19,8 +19,8 @@ class LocalWeatherFragment : Fragment() {
     private val adapter = WeatherInfoAdapter()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentLocalWeatherBinding.inflate(inflater, container, false)
         binding.apply {

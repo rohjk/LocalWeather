@@ -64,7 +64,7 @@ class LocalWeatherViewModel @ViewModelInject constructor(
                     }, { error ->
                         Log.e(TAG, "Failure to get Weather : ${error}")
                         var errorMessage = R.string.default_error_message
-                        when(error) {
+                        when (error) {
                             is HttpRequestFailException ->
                                 errorMessage = R.string.http_requst_fail_error_message
                             is NullResponseBodyException ->
