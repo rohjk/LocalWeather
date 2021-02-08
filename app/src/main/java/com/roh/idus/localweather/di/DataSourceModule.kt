@@ -1,7 +1,7 @@
 package com.roh.idus.localweather.di
 
 import com.roh.idus.localweather.date.datasource.WeatherDataSource
-import com.roh.idus.localweather.date.datasource.WeatherServerDataSource
+import com.roh.idus.localweather.date.datasource.WeatherRemoteDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,6 +14,6 @@ interface DataSourceModule {
 
     @ActivityScoped
     @Binds
-    fun bindWeatherServerDataSource(impl: WeatherServerDataSource): WeatherDataSource
+    fun bindWeatherServerDataSource(impl: WeatherRemoteDataSource): WeatherDataSource
 
 }

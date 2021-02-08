@@ -2,7 +2,7 @@ package com.roh.idus.localweather.date.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Weather (
+data class WeatherRemote (
     @SerializedName("id")
     val id: Long,
     @SerializedName("weather_state_name")

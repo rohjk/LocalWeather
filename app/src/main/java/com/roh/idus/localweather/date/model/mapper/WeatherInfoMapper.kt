@@ -1,14 +1,14 @@
 package com.roh.idus.localweather.date.model.mapper
 
-import com.roh.idus.localweather.date.network.WeatherResponse
+import com.roh.idus.localweather.date.model.WeatherInfoRemote
 import com.roh.idus.localweather.domain.model.WeatherInfo
 import javax.inject.Inject
 
 class WeatherInfoMapper @Inject constructor(
         private val weatherMapper: WeatherMapper
 ) {
-    fun transform(weatherResponse: WeatherResponse): WeatherInfo =
-            with(weatherResponse) {
+    fun transform(weatherInfoRemote: WeatherInfoRemote): WeatherInfo =
+            with(weatherInfoRemote) {
                 WeatherInfo(
                     locationTitle = locationTitle,
                     locationId = locationId,

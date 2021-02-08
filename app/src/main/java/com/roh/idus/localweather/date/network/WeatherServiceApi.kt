@@ -1,6 +1,7 @@
 package com.roh.idus.localweather.date.network
 
-import com.roh.idus.localweather.date.model.Location
+import com.roh.idus.localweather.date.model.LocationRemote
+import com.roh.idus.localweather.date.model.WeatherInfoRemote
 import io.reactivex.Observable
 import retrofit2.Response
 import retrofit2.http.GET
@@ -10,8 +11,8 @@ import retrofit2.http.Query
 interface WeatherServiceApi {
 
     @GET("location/search")
-    fun getLocations(@Query("query") search: String): Observable<Response<List<Location>>>
+    fun getLocations(@Query("query") search: String): Observable<Response<List<LocationRemote>>>
 
     @GET("location/{id}")
-    fun getWeather(@Path("id") id: Long): Observable<Response<WeatherResponse>>
+    fun getWeather(@Path("id") id: Long): Observable<Response<WeatherInfoRemote>>
 }
