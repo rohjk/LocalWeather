@@ -1,9 +1,9 @@
-package com.roh.idus.localweather.date.repository
+package com.roh.idus.localweather.data.repository
 
-import com.roh.idus.localweather.date.datasource.WeatherDataSource
-import com.roh.idus.localweather.date.model.LocationRemote
-import com.roh.idus.localweather.date.model.mapper.WeatherInfoMapper
-import com.roh.idus.localweather.date.model.WeatherInfoRemote
+import com.roh.idus.localweather.data.datasource.WeatherDataSource
+import com.roh.idus.localweather.data.model.LocationDTO
+import com.roh.idus.localweather.data.model.mapper.WeatherInfoMapper
+import com.roh.idus.localweather.data.model.WeatherInfoDTO
 import com.roh.idus.localweather.domain.repository.WeatherRepository
 import com.roh.idus.localweather.domain.model.WeatherInfo
 import io.reactivex.Observable
@@ -23,11 +23,11 @@ class WeatherRepositoryImpl @Inject constructor(
         }.toList()
     }
 
-    private fun getLocations(search: String): Observable<List<LocationRemote>> {
+    private fun getLocations(search: String): Observable<List<LocationDTO>> {
         return weatherDataSource.getLocations(search)
     }
 
-    private fun getWeathers(id: Long): Observable<WeatherInfoRemote> {
+    private fun getWeathers(id: Long): Observable<WeatherInfoDTO> {
         return weatherDataSource.getWeatherInfo(id)
     }
 

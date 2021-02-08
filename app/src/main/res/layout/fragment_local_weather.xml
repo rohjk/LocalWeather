@@ -26,7 +26,8 @@
            android:layout_height="match_parent"
            app:adapter="@{adapter}"
            app:adapterWeatherInfoList="@{viewModel.weatherInfos}"
-           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+           tools:listitem="@layout/header_weather_list"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

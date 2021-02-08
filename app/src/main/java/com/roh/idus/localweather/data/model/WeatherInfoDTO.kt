@@ -1,13 +1,12 @@
-package com.roh.idus.localweather.date.model
+package com.roh.idus.localweather.data.model
 
 import com.google.gson.annotations.SerializedName
-import com.roh.idus.localweather.date.model.WeatherRemote
 
-data class WeatherInfoRemote (
+data class WeatherInfoDTO (
     @SerializedName("title")
     val locationTitle: String,
     @SerializedName("woeid")
     val locationId: Long,
     @SerializedName("consolidated_weather")
-    val weatherList: List<WeatherRemote>
+    val weatherList: List<WeatherDTO>
 )

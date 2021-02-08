@@ -1,6 +1,6 @@
 package com.roh.idus.localweather.di
 
-import com.roh.idus.localweather.date.repository.WeatherRepositoryImpl
+import com.roh.idus.localweather.data.repository.WeatherRepositoryImpl
 import com.roh.idus.localweather.domain.repository.WeatherRepository
 import dagger.Binds
 import dagger.Module

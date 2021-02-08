@@ -1,7 +1,7 @@
 package com.roh.idus.localweather.di
 
-import com.roh.idus.localweather.date.datasource.WeatherDataSource
-import com.roh.idus.localweather.date.datasource.WeatherRemoteDataSource
+import com.roh.idus.localweather.data.datasource.WeatherDataSource
+import com.roh.idus.localweather.data.datasource.WeatherRemoteDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

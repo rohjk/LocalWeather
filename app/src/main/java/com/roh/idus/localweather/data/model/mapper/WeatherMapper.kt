@@ -1,12 +1,12 @@
-package com.roh.idus.localweather.date.model.mapper
+package com.roh.idus.localweather.data.model.mapper
 
 import com.roh.idus.localweather.BuildConfig
-import com.roh.idus.localweather.date.model.WeatherRemote
+import com.roh.idus.localweather.data.model.WeatherDTO
 import com.roh.idus.localweather.domain.model.Weather
 import javax.inject.Inject
 
 class WeatherMapper @Inject constructor() {
-    fun transform(weather: WeatherRemote): Weather =
+    fun transform(weather: WeatherDTO): Weather =
             with(weather) {
                 return Weather(
                     id = id,

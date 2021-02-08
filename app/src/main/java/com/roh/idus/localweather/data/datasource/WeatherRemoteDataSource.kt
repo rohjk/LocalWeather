@@ -1,8 +1,8 @@
-package com.roh.idus.localweather.date.datasource
+package com.roh.idus.localweather.data.datasource
 
-import com.roh.idus.localweather.date.model.LocationRemote
-import com.roh.idus.localweather.date.network.WeatherServiceApi
-import com.roh.idus.localweather.date.model.WeatherInfoRemote
+import com.roh.idus.localweather.data.model.LocationDTO
+import com.roh.idus.localweather.data.network.WeatherServiceApi
+import com.roh.idus.localweather.data.model.WeatherInfoDTO
 import com.roh.idus.localweather.di.IOScheduler
 import io.reactivex.Observable
 import io.reactivex.Scheduler
@@ -13,7 +13,7 @@ class WeatherRemoteDataSource @Inject constructor(
         @IOScheduler private val scheduler: Scheduler
 ) : WeatherDataSource {
 
-    override fun getLocations(search: String): Observable<List<LocationRemote>> {
+    override fun getLocations(search: String): Observable<List<LocationDTO>> {
         return weatherServiceApi.getLocations(search).subscribeOn(scheduler).flatMap { response ->
             if (response.isSuccessful) {
                 response.body()?.let {
@@ -25,14 +25,14 @@ class WeatherRemoteDataSource @Inject constructor(
         }
     }
 
-    override fun getWeatherInfo(id: Long): Observable<WeatherInfoRemote> {
+    override fun getWeatherInfo(id: Long): Observable<WeatherInfoDTO> {
        return weatherServiceApi.getWeather(id).subscribeOn(scheduler).flatMap { response ->
            if (response.isSuccessful) {
                response.body()?.let {
                    Observable.just(it)
                } ?: Observable.error(Throwable("EMPTY_WEATHERS"))
            } else {
-               Observable.error(Throwable("FAILURE_TO_GET_LOCATIONS_${response.code()}"))
+               Observable.error(Throwable("FAILURE_TO_GET_WEATHER_INFO_${response.code()}"))
            }
        }
     }

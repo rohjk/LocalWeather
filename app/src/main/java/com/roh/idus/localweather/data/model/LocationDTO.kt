@@ -1,8 +1,8 @@
-package com.roh.idus.localweather.date.model
+package com.roh.idus.localweather.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class LocationRemote (
+data class LocationDTO (
     @SerializedName("woeid")
     val id: Long,
     @SerializedName("title")

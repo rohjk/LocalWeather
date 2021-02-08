@@ -17,6 +17,10 @@ class LocalWeatherViewModel @ViewModelInject constructor(
         private val disposable: CompositeDisposable
 ) : ViewModel() {
 
+    companion object {
+        private val TAG = LocalWeatherViewModel::class.java.simpleName
+    }
+
     private val _search = MutableLiveData<String>()
 
     private val _weatherInfos = MutableLiveData<List<WeatherInfo>>(emptyList())
@@ -51,13 +55,13 @@ class LocalWeatherViewModel @ViewModelInject constructor(
             _dataLoading.value = true
             disposable.add(
                     getWeatherBySearchUseCase.execute(search).observeOn(scheduler).doFinally {
-                    _dataLoading.value = false
-                }.subscribe({
-                    _weatherInfos.value = it
-                }, { error ->
-                    Log.e("Jake", "Failure to get Weather : ${error.message.toString()}")
-                    _toastText.value = error.message
-                })
+                        _dataLoading.value = false
+                    }.subscribe({
+                        _weatherInfos.value = it
+                    }, { error ->
+                        Log.e(TAG, "Failure to get Weather : ${error.message.toString()}")
+                        _toastText.value = error.message
+                    })
             )
         }
     }

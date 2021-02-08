@@ -1,12 +1,11 @@
 package com.roh.idus.localweather.di
 
 import com.roh.idus.localweather.BuildConfig
-import com.roh.idus.localweather.date.network.WeatherServiceApi
+import com.roh.idus.localweather.data.network.WeatherServiceApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
