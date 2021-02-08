@@ -1,21 +1,24 @@
 package com.roh.idus.localweather.data.model.mapper
 
-import com.roh.idus.localweather.BuildConfig
 import com.roh.idus.localweather.data.model.WeatherDTO
 import com.roh.idus.localweather.domain.model.Weather
+import com.roh.idus.localweather.utils.IconUrlGenerator
 import javax.inject.Inject
+import javax.inject.Singleton
 
-class WeatherMapper @Inject constructor() {
+@Singleton
+class WeatherMapper @Inject constructor(
+        private val iconUrlGenerator: IconUrlGenerator
+) {
     fun transform(weather: WeatherDTO): Weather =
             with(weather) {
                 return Weather(
                     id = id,
                     humidity = humidity,
-                    icon = getIconUri(icon),
+                    icon = iconUrlGenerator.getPngIconUrl(icon),
                     state = state,
                     temp = temp
                 )
             }
 
-    private fun getIconUri(iconType: String) = BuildConfig.BASE_HOST + "static/img/weather/png/${iconType}.png"
 }
