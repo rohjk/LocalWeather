@@ -32,7 +32,7 @@ class WeatherRemoteDataSource @Inject constructor(
            if (response.isSuccessful) {
                response.body()?.let {
                    Observable.just(it)
-               } ?: Observable.error(Throwable(NullResponseBodyException("get location weather response body is null")))
+               } ?: Observable.error(NullResponseBodyException("get location weather response body is null"))
            } else {
                Observable.error(HttpRequestFailException("failure to get location weather :${response.code()}"))
            }
