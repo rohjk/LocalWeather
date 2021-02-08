@@ -1,4 +1,4 @@
-package com.roh.idus.localweather.localweather
+package com.roh.idus.localweather.localweather.adapter
 
 import com.roh.idus.localweather.domain.model.WeatherInfo
 

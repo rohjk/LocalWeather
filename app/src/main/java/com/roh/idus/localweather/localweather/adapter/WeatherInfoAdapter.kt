@@ -3,10 +3,9 @@ package com.roh.idus.localweather.localweather.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.roh.idus.localweather.databinding.ItemWeatherListHeaderBinding
-import com.roh.idus.localweather.databinding.ItemWeatherListItemBinding
+import com.roh.idus.localweather.databinding.HeaderWeatherListBinding
+import com.roh.idus.localweather.databinding.ItemWeatherListBinding
 import com.roh.idus.localweather.domain.model.WeatherInfo
-import com.roh.idus.localweather.localweather.WeatherInfoViewModel
 
 private val ITEM_VIEW_TYPE_HEADER = 0
 private val ITEM_VIEW_TYPE_ITEM = 1
@@ -28,7 +27,7 @@ class WeatherInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    class WeatherInfoViewHolder constructor(val binding: ItemWeatherListItemBinding) :
+    class WeatherInfoViewHolder constructor(val binding: ItemWeatherListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: WeatherInfo) {
             binding.apply {
@@ -40,20 +39,20 @@ class WeatherInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         companion object {
             fun from(parent: ViewGroup): WeatherInfoViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemWeatherListItemBinding.inflate(layoutInflater, parent, false)
+                val binding = ItemWeatherListBinding.inflate(layoutInflater, parent, false)
                 return WeatherInfoViewHolder(binding)
             }
         }
     }
 
-    class HeaderViewHolder constructor(val binding: ItemWeatherListHeaderBinding) :
+    class HeaderViewHolder constructor(val binding: HeaderWeatherListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         companion object {
             fun from(parent: ViewGroup): HeaderViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding =
-                    ItemWeatherListHeaderBinding.inflate(layoutInflater, parent, false)
+                        HeaderWeatherListBinding.inflate(layoutInflater, parent, false)
                 return HeaderViewHolder(binding)
             }
         }

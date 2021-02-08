@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.roh.idus.localweather.localweather.WeatherInfoViewModel" />
+            type="com.roh.idus.localweather.localweather.adapter.WeatherInfoViewModel" />
     </data>
 
     <LinearLayout
