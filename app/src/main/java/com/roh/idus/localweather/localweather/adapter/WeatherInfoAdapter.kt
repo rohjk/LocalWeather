@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.roh.idus.localweather.databinding.HeaderWeatherListBinding
 import com.roh.idus.localweather.databinding.ItemWeatherListBinding
-import com.roh.idus.localweather.domain.model.WeatherInfo
+import com.roh.idus.localweather.domain.model.LocationWeather
 
 private val ITEM_VIEW_TYPE_HEADER = 0
 private val ITEM_VIEW_TYPE_ITEM = 1
@@ -14,7 +14,7 @@ class WeatherInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: List<DataItem> = emptyList()
 
-    fun addHeaderAndSumbitList(list: List<WeatherInfo>) {
+    fun addHeaderAndSumbitList(list: List<LocationWeather>) {
         val itemList: MutableList<DataItem> = mutableListOf()
 
         if (!list.isEmpty()) {
@@ -29,7 +29,7 @@ class WeatherInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class WeatherInfoViewHolder constructor(val binding: ItemWeatherListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: WeatherInfo) {
+        fun bind(item: LocationWeather) {
             binding.apply {
                 viewModel = WeatherInfoViewModel(item)
                 executePendingBindings()
@@ -81,13 +81,13 @@ class WeatherInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         when (holder) {
             is WeatherInfoViewHolder -> {
                 val weatherInfoItem = items[position] as DataItem.weatherInfoItem
-                holder.bind(weatherInfoItem.weatherInfo)
+                holder.bind(weatherInfoItem.locationWeather)
             }
         }
     }
 
     sealed class DataItem {
-        data class weatherInfoItem(val weatherInfo: WeatherInfo) : DataItem()
+        data class weatherInfoItem(val locationWeather: LocationWeather) : DataItem()
         data class Header(val id: Long = System.currentTimeMillis()) : DataItem()
     }
 

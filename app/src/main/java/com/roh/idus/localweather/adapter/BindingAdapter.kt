@@ -5,7 +5,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.roh.idus.localweather.domain.model.WeatherInfo
+import com.roh.idus.localweather.domain.model.LocationWeather
 import com.roh.idus.localweather.localweather.adapter.WeatherInfoAdapter
 
 @BindingAdapter("imageFromUrl")
@@ -19,7 +19,7 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
 }
 
 @BindingAdapter("adapterWeatherInfoList")
-fun bindAdapterPokemonList(view: RecyclerView, list: List<WeatherInfo>?) {
+fun bindAdapterPokemonList(view: RecyclerView, list: List<LocationWeather>?) {
     list?.let { itemList ->
         view.adapter?.apply {
             (this as WeatherInfoAdapter).addHeaderAndSumbitList(itemList)

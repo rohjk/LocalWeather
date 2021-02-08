@@ -25,7 +25,7 @@
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            app:adapter="@{adapter}"
-           app:adapterWeatherInfoList="@{viewModel.weatherInfos}"
+           app:adapterWeatherInfoList="@{viewModel.locationWeathers}"
            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
            tools:listitem="@layout/header_weather_list"/>
 

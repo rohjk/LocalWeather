@@ -2,7 +2,7 @@ package com.roh.idus.localweather.data.datasource
 
 import com.roh.idus.localweather.data.model.LocationDTO
 import com.roh.idus.localweather.data.network.WeatherServiceApi
-import com.roh.idus.localweather.data.model.WeatherInfoDTO
+import com.roh.idus.localweather.data.model.LocationWeatherDTO
 import com.roh.idus.localweather.di.IOScheduler
 import io.reactivex.Observable
 import io.reactivex.Scheduler
@@ -25,7 +25,7 @@ class WeatherRemoteDataSource @Inject constructor(
         }
     }
 
-    override fun getWeatherInfo(id: Long): Observable<WeatherInfoDTO> {
+    override fun getWeatherInfo(id: Long): Observable<LocationWeatherDTO> {
        return weatherServiceApi.getWeather(id).subscribeOn(scheduler).flatMap { response ->
            if (response.isSuccessful) {
                response.body()?.let {

@@ -6,13 +6,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.roh.idus.localweather.di.MainScheduler
-import com.roh.idus.localweather.domain.model.WeatherInfo
-import com.roh.idus.localweather.domain.usecase.GetWeatherInfosBySearchUseCase
+import com.roh.idus.localweather.domain.model.LocationWeather
+import com.roh.idus.localweather.domain.usecase.SearchWeatherInfosUseCase
 import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
 
 class LocalWeatherViewModel @ViewModelInject constructor(
-        private val getWeatherInfosBySearchUseCase: GetWeatherInfosBySearchUseCase,
+        private val searchWeatherInfosUseCase: SearchWeatherInfosUseCase,
         @MainScheduler private val scheduler: Scheduler,
         private val disposable: CompositeDisposable
 ) : ViewModel() {
@@ -23,9 +23,9 @@ class LocalWeatherViewModel @ViewModelInject constructor(
 
     private val _search = MutableLiveData<String>()
 
-    private val _weatherInfos = MutableLiveData<List<WeatherInfo>>(emptyList())
-    val weatherInfos: LiveData<List<WeatherInfo>>
-        get() = _weatherInfos
+    private val _locationWeathers = MutableLiveData<List<LocationWeather>>(emptyList())
+    val locationWeathers: LiveData<List<LocationWeather>>
+        get() = _locationWeathers
 
     private val _dataLoading = MutableLiveData<Boolean>()
     val dataLoading: LiveData<Boolean> = _dataLoading
@@ -54,10 +54,10 @@ class LocalWeatherViewModel @ViewModelInject constructor(
         _search.value?.let { search ->
             _dataLoading.value = true
             disposable.add(
-                    getWeatherInfosBySearchUseCase(search).observeOn(scheduler).doFinally {
+                    searchWeatherInfosUseCase(search).observeOn(scheduler).doFinally {
                         _dataLoading.value = false
                     }.subscribe({
-                        _weatherInfos.value = it
+                        _locationWeathers.value = it
                     }, { error ->
                         Log.e(TAG, "Failure to get Weather : ${error.message.toString()}")
                         _toastText.value = error.message

@@ -1,13 +1,13 @@
 package com.roh.idus.localweather.localweather.adapter
 
 import com.roh.idus.localweather.domain.model.Weather
-import com.roh.idus.localweather.domain.model.WeatherInfo
+import com.roh.idus.localweather.domain.model.LocationWeather
 
 class WeatherInfoViewModel constructor(
-    private val weaterInfo: WeatherInfo
+    private val locationWeather: LocationWeather
 ) {
 
-    private val weathers = weaterInfo.weathers
+    private val weathers = locationWeather.weathers
 
     private val defaultWeather = Weather (
             id = 0,
@@ -17,7 +17,7 @@ class WeatherInfoViewModel constructor(
             temp = 0.0
     )
 
-    val localTitle = weaterInfo.locationTitle
+    val localTitle = locationWeather.locationTitle
     val todayWeather = weathers.getOrNull(0) ?: defaultWeather
     val tomorowWeather = weathers.getOrNull(1) ?: defaultWeather
 

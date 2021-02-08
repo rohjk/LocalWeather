@@ -2,7 +2,7 @@ package com.roh.idus.localweather.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class WeatherInfoDTO (
+data class LocationWeatherDTO (
     @SerializedName("title")
     val locationTitle: String,
     @SerializedName("woeid")

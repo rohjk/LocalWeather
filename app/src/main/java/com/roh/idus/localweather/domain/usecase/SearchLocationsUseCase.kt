@@ -5,7 +5,7 @@ import com.roh.idus.localweather.domain.repository.WeatherRepository
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class GetLocationBySearchUseCase @Inject constructor(
+class SearchLocationsUseCase @Inject constructor(
         private val weatherRepository: WeatherRepository,
 ) {
     operator fun invoke(search: String): Observable<List<Location>> = weatherRepository.getLocation(search)
