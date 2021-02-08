@@ -4,7 +4,7 @@ import com.roh.idus.localweather.date.datasource.WeatherDataSource
 import com.roh.idus.localweather.date.model.LocationRemote
 import com.roh.idus.localweather.date.model.mapper.WeatherInfoMapper
 import com.roh.idus.localweather.date.model.WeatherInfoRemote
-import com.roh.idus.localweather.domain.WeatherRepository
+import com.roh.idus.localweather.domain.repository.WeatherRepository
 import com.roh.idus.localweather.domain.model.WeatherInfo
 import io.reactivex.Observable
 import io.reactivex.Single

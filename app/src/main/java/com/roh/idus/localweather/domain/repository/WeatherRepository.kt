@@ -1,4 +1,4 @@
-package com.roh.idus.localweather.domain
+package com.roh.idus.localweather.domain.repository
 
 import com.roh.idus.localweather.domain.model.WeatherInfo
 import io.reactivex.Single
