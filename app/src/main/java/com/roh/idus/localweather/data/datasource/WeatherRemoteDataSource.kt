@@ -4,6 +4,8 @@ import com.roh.idus.localweather.data.model.LocationDTO
 import com.roh.idus.localweather.data.network.WeatherServiceApi
 import com.roh.idus.localweather.data.model.LocationWeatherDTO
 import com.roh.idus.localweather.di.IOScheduler
+import com.roh.idus.localweather.error.HttpRequestFailException
+import com.roh.idus.localweather.error.NullResponseBodyException
 import io.reactivex.Observable
 import io.reactivex.Scheduler
 import javax.inject.Inject
@@ -18,21 +20,21 @@ class WeatherRemoteDataSource @Inject constructor(
             if (response.isSuccessful) {
                 response.body()?.let {
                     Observable.just(it)
-                } ?: Observable.error(Throwable("EMPTY_LOCATIONS"))
+                } ?: Observable.error(NullResponseBodyException("get location response body is null"))
             } else {
-                Observable.error(Throwable("FAILURE_TO_GET_LOCATIONS_${response.code()}"))
+                Observable.error(HttpRequestFailException("failure to get locations :${response.code()}"))
             }
         }
     }
 
-    override fun getWeatherInfo(id: Long): Observable<LocationWeatherDTO> {
+    override fun getLocationWeather(id: Long): Observable<LocationWeatherDTO> {
        return weatherServiceApi.getWeather(id).subscribeOn(scheduler).flatMap { response ->
            if (response.isSuccessful) {
                response.body()?.let {
                    Observable.just(it)
-               } ?: Observable.error(Throwable("EMPTY_WEATHERS"))
+               } ?: Observable.error(Throwable(NullResponseBodyException("get location weather response body is null")))
            } else {
-               Observable.error(Throwable("FAILURE_TO_GET_WEATHER_INFO_${response.code()}"))
+               Observable.error(HttpRequestFailException("failure to get location weather :${response.code()}"))
            }
        }
     }

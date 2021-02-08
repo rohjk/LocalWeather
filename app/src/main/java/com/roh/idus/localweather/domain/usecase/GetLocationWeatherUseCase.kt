@@ -5,8 +5,8 @@ import com.roh.idus.localweather.domain.repository.WeatherRepository
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class GetWeatherInfoUseCase @Inject constructor(
+class GetLocationWeatherUseCase @Inject constructor(
         private val weatherRepository: WeatherRepository,
 ) {
-    operator fun invoke(id: Long): Observable<LocationWeather> = weatherRepository.getWeatherInfo(id)
+    operator fun invoke(id: Long): Observable<LocationWeather> = weatherRepository.getLocationWeather(id)
 }

@@ -36,8 +36,8 @@ class LocalWeatherFragment : Fragment() {
     }
 
     private fun subscribeUI() {
-        viewModel.toastText.observe(viewLifecycleOwner) { message ->
-            Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+        viewModel.toastText.observe(viewLifecycleOwner) { stringId ->
+            Toast.makeText(activity, getString(stringId), Toast.LENGTH_SHORT).show()
         }
     }
 

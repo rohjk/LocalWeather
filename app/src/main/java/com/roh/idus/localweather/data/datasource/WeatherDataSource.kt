@@ -6,5 +6,5 @@ import io.reactivex.Observable
 
 interface WeatherDataSource {
     fun getLocations(search: String): Observable<List<LocationDTO>>
-    fun getWeatherInfo(id: Long): Observable<LocationWeatherDTO>
+    fun getLocationWeather(id: Long): Observable<LocationWeatherDTO>
 }

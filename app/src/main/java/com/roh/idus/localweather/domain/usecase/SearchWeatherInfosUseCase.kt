@@ -7,11 +7,11 @@ import javax.inject.Inject
 
 class SearchWeatherInfosUseCase @Inject constructor(
         private val searchLocationsUseCase: SearchLocationsUseCase,
-        private val getWeatherInfoUseCase: GetWeatherInfoUseCase
+        private val getLocationWeatherUseCase: GetLocationWeatherUseCase
 ) {
     operator fun invoke(search: String): Single<List<LocationWeather>> {
         return searchLocationsUseCase(search).flatMapIterable { it }.concatMapEager { location ->
-            getWeatherInfoUseCase(location.id)
+            getLocationWeatherUseCase(location.id)
         }.flatMap {
             Observable.just(it)
         }.toList()

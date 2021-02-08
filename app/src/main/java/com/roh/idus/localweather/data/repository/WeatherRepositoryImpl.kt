@@ -21,8 +21,8 @@ class WeatherRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getWeatherInfo(id: Long): Observable<LocationWeather> {
-        return weatherDataSource.getWeatherInfo(id).map {
+    override fun getLocationWeather(id: Long): Observable<LocationWeather> {
+        return weatherDataSource.getLocationWeather(id).map {
             locationWeatherMapper.transform(it)
         }
     }
