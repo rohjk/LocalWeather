@@ -8,14 +8,14 @@ import androidx.lifecycle.ViewModel
 import com.roh.idus.localweather.R
 import com.roh.idus.localweather.di.MainScheduler
 import com.roh.idus.localweather.domain.model.LocationWeather
-import com.roh.idus.localweather.domain.usecase.SearchWeatherInfosUseCase
+import com.roh.idus.localweather.domain.usecase.SearchLocationWeathersUseCase
 import com.roh.idus.localweather.error.HttpRequestFailException
 import com.roh.idus.localweather.error.NullResponseBodyException
 import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
 
 class LocalWeatherViewModel @ViewModelInject constructor(
-        private val searchWeatherInfosUseCase: SearchWeatherInfosUseCase,
+        private val searchLocationWeathersUseCase: SearchLocationWeathersUseCase,
         @MainScheduler private val scheduler: Scheduler,
         private val disposable: CompositeDisposable
 ) : ViewModel() {
@@ -57,7 +57,7 @@ class LocalWeatherViewModel @ViewModelInject constructor(
         _search.value?.let { search ->
             _dataLoading.value = true
             disposable.add(
-                    searchWeatherInfosUseCase(search).observeOn(scheduler).doFinally {
+                    searchLocationWeathersUseCase(search).observeOn(scheduler).doFinally {
                         _dataLoading.value = false
                     }.subscribe({
                         _locationWeathers.value = it

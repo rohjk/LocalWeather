@@ -11,9 +11,9 @@ import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test
 
-class SearchWeatherInfosUseCaseTest {
+class SearchLocationWeathersUseCaseTest {
 
-    lateinit var searchWeatherInfosUseCase: SearchWeatherInfosUseCase
+    lateinit var searchLocationWeathersUseCase: SearchLocationWeathersUseCase
 
     @MockK
     lateinit var searchLocationsUseCase: SearchLocationsUseCase
@@ -41,7 +41,7 @@ class SearchWeatherInfosUseCaseTest {
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
-        searchWeatherInfosUseCase = SearchWeatherInfosUseCase(searchLocationsUseCase, getLocationWeatherUseCase)
+        searchLocationWeathersUseCase = SearchLocationWeathersUseCase(searchLocationsUseCase, getLocationWeatherUseCase)
 
         every { location1.id } returns locationId1
         every { location2.id } returns locationId2
@@ -54,7 +54,7 @@ class SearchWeatherInfosUseCaseTest {
         val expected = listOf(locationWeather1, locationWeather2)
         every { searchLocationsUseCase(search) } returns Observable.just(listOf(location1, location2))
 
-        searchWeatherInfosUseCase(search).test()
+        searchLocationWeathersUseCase(search).test()
                 .assertNoErrors()
                 .assertOf { it == expected }
 

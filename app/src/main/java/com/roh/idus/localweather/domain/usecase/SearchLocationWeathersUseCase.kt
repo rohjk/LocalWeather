@@ -5,7 +5,7 @@ import io.reactivex.Observable
 import io.reactivex.Single
 import javax.inject.Inject
 
-class SearchWeatherInfosUseCase @Inject constructor(
+class SearchLocationWeathersUseCase @Inject constructor(
         private val searchLocationsUseCase: SearchLocationsUseCase,
         private val getLocationWeatherUseCase: GetLocationWeatherUseCase
 ) {
