@@ -62,18 +62,22 @@ class LocalWeatherViewModel @ViewModelInject constructor(
                     }.subscribe({
                         _locationWeathers.value = it
                     }, { error ->
-                        Log.e(TAG, "Failure to get Weather : ${error}")
-                        var errorMessage = R.string.default_error_message
-                        when (error) {
-                            is HttpRequestFailException ->
-                                errorMessage = R.string.http_requst_fail_error_message
-                            is NullResponseBodyException ->
-                                errorMessage = R.string.null_response_body_error_message
-                        }
-                        _toastText.value = errorMessage
+                        Log.e(TAG, "Failure to get Weather", error)
+                        processError(error)
                     })
             )
         }
+    }
+
+    private fun processError(error: Throwable) {
+        var errorMessage = R.string.default_error_message
+        when (error) {
+            is HttpRequestFailException ->
+                errorMessage = R.string.http_requst_fail_error_message
+            is NullResponseBodyException ->
+                errorMessage = R.string.null_response_body_error_message
+        }
+        _toastText.value = errorMessage
     }
 
     override fun onCleared() {
