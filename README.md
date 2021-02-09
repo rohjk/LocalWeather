@@ -150,4 +150,4 @@ Light Theme
 
 Dark Theme
 
-Dark Theme를 고려하여 Color를 ligh, night로 구분하여 작성하였습니다.
+Dark Theme를 고려하여 Color를 light, night로 구분하여 작성하였습니다.
