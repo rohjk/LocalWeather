@@ -12,7 +12,6 @@ import org.junit.Before
 import org.junit.Test
 
 import org.junit.Assert.*
-import org.mockito.Mock
 
 class LocationWeatherMapperTest {
 

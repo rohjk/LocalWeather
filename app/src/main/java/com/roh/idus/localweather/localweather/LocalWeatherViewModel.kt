@@ -33,9 +33,9 @@ class LocalWeatherViewModel @ViewModelInject constructor(
     private val _dataLoading = MutableLiveData<Boolean>()
     val dataLoading: LiveData<Boolean> = _dataLoading
 
-    private val _toastText = MutableLiveData<Int>()
-    val toastText: LiveData<Int>
-        get() = _toastText
+    private val _toastTextId = MutableLiveData<Int>()
+    val toastTextId: LiveData<Int>
+        get() = _toastTextId
 
 
     fun search(search: String) {
@@ -70,14 +70,14 @@ class LocalWeatherViewModel @ViewModelInject constructor(
     }
 
     private fun processError(error: Throwable) {
-        var errorMessage = R.string.default_error_message
+        var stringId = R.string.default_error_message
         when (error) {
             is HttpRequestFailException ->
-                errorMessage = R.string.http_requst_fail_error_message
+                stringId = R.string.http_requst_fail_error_message
             is NullResponseBodyException ->
-                errorMessage = R.string.null_response_body_error_message
+                stringId = R.string.null_response_body_error_message
         }
-        _toastText.value = errorMessage
+        _toastTextId.value = stringId
     }
 
     override fun onCleared() {

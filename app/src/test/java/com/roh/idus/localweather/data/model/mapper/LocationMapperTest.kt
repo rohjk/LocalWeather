@@ -2,7 +2,6 @@ package com.roh.idus.localweather.data.model.mapper
 
 import com.roh.idus.localweather.data.model.LocationDTO
 import com.roh.idus.localweather.domain.model.Location
-import com.roh.idus.localweather.domain.model.LocationWeather
 import org.junit.Test
 
 import org.junit.Assert.*

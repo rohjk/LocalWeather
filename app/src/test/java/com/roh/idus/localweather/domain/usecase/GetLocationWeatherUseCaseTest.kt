@@ -10,7 +10,6 @@ import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test
 
-
 class GetLocationWeatherUseCaseTest {
 
     lateinit var getLocationWeatherUseCase: GetLocationWeatherUseCase
