@@ -56,7 +56,7 @@ class WeatherRepositoryImplTest {
 
         val expected = listOf(location)
 
-        weatherRepositoryImpl.getLocation(search).test()
+        weatherRepositoryImpl.getLocations(search).test()
                 .assertNoErrors()
                 .assertValue { it == expected }
 
@@ -72,7 +72,7 @@ class WeatherRepositoryImplTest {
 
         every { weatherRemoteDataSource.getLocations(search) } returns Observable.error(expected)
 
-        weatherRepositoryImpl.getLocation(search).test()
+        weatherRepositoryImpl.getLocations(search).test()
                 .assertError(expected)
 
         verify(exactly = 1) {

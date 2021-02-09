@@ -15,7 +15,7 @@ class WeatherRepositoryImpl @Inject constructor(
         private val locationMapper: LocationMapper
 ) : WeatherRepository {
 
-    override fun getLocation(search: String): Observable<List<Location>> {
+    override fun getLocations(search: String): Observable<List<Location>> {
         return weatherDataSource.getLocations(search).map {
             it.map { locationMapper.transform(it) }
         }

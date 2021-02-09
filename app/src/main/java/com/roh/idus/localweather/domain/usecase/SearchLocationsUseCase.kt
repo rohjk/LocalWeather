@@ -8,5 +8,5 @@ import javax.inject.Inject
 class SearchLocationsUseCase @Inject constructor(
         private val weatherRepository: WeatherRepository,
 ) {
-    operator fun invoke(search: String): Observable<List<Location>> = weatherRepository.getLocation(search)
+    operator fun invoke(search: String): Observable<List<Location>> = weatherRepository.getLocations(search)
 }
