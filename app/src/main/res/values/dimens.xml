@@ -11,4 +11,7 @@
     <dimen name="list_item_height">80dp</dimen>
 
     <dimen name="weather_icon_max_size">45dp</dimen>
+
+    <dimen name="text_size_normal">11sp</dimen>
+    <dimen name="elevation_normal">4dp</dimen>
 </resources>
