@@ -6,13 +6,15 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.scopes.ActivityScoped
+import javax.inject.Singleton
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(ApplicationComponent::class)
 interface DataSourceModule {
 
-    @ActivityScoped
+    @Singleton
     @Binds
     fun bindWeatherServerDataSource(impl: WeatherRemoteDataSource): WeatherDataSource
 
