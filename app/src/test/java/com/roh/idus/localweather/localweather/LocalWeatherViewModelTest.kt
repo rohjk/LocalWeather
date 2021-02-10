@@ -3,7 +3,6 @@ package com.roh.idus.localweather.localweather
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.roh.idus.localweather.R
 import com.roh.idus.localweather.domain.model.LocationWeather
-import com.roh.idus.localweather.domain.usecase.GetLocationWeatherUseCase
 import com.roh.idus.localweather.domain.usecase.SearchLocationWeathersUseCase
 import com.roh.idus.localweather.error.HttpRequestFailException
 import com.roh.idus.localweather.error.NullResponseBodyException

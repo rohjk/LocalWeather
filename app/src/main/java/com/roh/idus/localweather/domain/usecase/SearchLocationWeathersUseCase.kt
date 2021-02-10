@@ -1,17 +1,17 @@
 package com.roh.idus.localweather.domain.usecase
 
 import com.roh.idus.localweather.domain.model.LocationWeather
+import com.roh.idus.localweather.domain.repository.WeatherRepository
 import io.reactivex.Observable
 import io.reactivex.Single
 import javax.inject.Inject
 
 class SearchLocationWeathersUseCase @Inject constructor(
-        private val searchLocationsUseCase: SearchLocationsUseCase,
-        private val getLocationWeatherUseCase: GetLocationWeatherUseCase
+        private val weatherRepository: WeatherRepository,
 ) {
     operator fun invoke(search: String): Single<List<LocationWeather>> {
-        return searchLocationsUseCase(search).flatMapIterable { it }.concatMapEager { location ->
-            getLocationWeatherUseCase(location.id)
+        return weatherRepository.getLocations(search).flatMapIterable { it }.concatMapEager { location ->
+            weatherRepository.getLocationWeather(location.id)
         }.flatMap {
             Observable.just(it)
         }.toList()

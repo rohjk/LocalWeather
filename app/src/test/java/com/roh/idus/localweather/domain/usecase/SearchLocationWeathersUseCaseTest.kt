@@ -2,6 +2,7 @@ package com.roh.idus.localweather.domain.usecase
 
 import com.roh.idus.localweather.domain.model.Location
 import com.roh.idus.localweather.domain.model.LocationWeather
+import com.roh.idus.localweather.domain.repository.WeatherRepository
 import io.mockk.MockKAnnotations
 import io.mockk.Ordering
 import io.mockk.every
@@ -16,10 +17,7 @@ class SearchLocationWeathersUseCaseTest {
     lateinit var searchLocationWeathersUseCase: SearchLocationWeathersUseCase
 
     @MockK
-    lateinit var searchLocationsUseCase: SearchLocationsUseCase
-
-    @MockK
-    lateinit var getLocationWeatherUseCase: GetLocationWeatherUseCase
+    lateinit var weatherRepository: WeatherRepository
 
     @MockK
     lateinit var location1: Location
@@ -41,27 +39,27 @@ class SearchLocationWeathersUseCaseTest {
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
-        searchLocationWeathersUseCase = SearchLocationWeathersUseCase(searchLocationsUseCase, getLocationWeatherUseCase)
+        searchLocationWeathersUseCase = SearchLocationWeathersUseCase(weatherRepository)
 
         every { location1.id } returns locationId1
         every { location2.id } returns locationId2
-        every { getLocationWeatherUseCase(locationId1) } returns Observable.just(locationWeather1)
-        every { getLocationWeatherUseCase(locationId2) } returns Observable.just(locationWeather2)
+        every { weatherRepository.getLocationWeather(locationId1) } returns Observable.just(locationWeather1)
+        every { weatherRepository.getLocationWeather(locationId2) } returns Observable.just(locationWeather2)
     }
 
     @Test
     operator fun invoke() {
         val expected = listOf(locationWeather1, locationWeather2)
-        every { searchLocationsUseCase(search) } returns Observable.just(listOf(location1, location2))
+        every { weatherRepository.getLocations(search) } returns Observable.just(listOf(location1, location2))
 
         searchLocationWeathersUseCase(search).test()
                 .assertNoErrors()
                 .assertOf { it == expected }
 
         verify(ordering = Ordering.SEQUENCE) {
-            searchLocationsUseCase(search)
-            getLocationWeatherUseCase(locationId1)
-            getLocationWeatherUseCase(locationId2)
+            weatherRepository.getLocations(search)
+            weatherRepository.getLocationWeather(locationId1)
+            weatherRepository.getLocationWeather(locationId2)
         }
     }
 }
