@@ -117,7 +117,7 @@ concatMapEager 연산자는 동시성, 순서를 보장합니다.
 
 ## Unit Test
 
-Mapper, DataSource, Repository, ViewModel Unit Test를 작성하였습니다.
+Mapper, DataSource, Repository, UseCase, ViewModel Unit Test를 작성하였습니다.
 
 JUnit + MockK 라이브러리를 사용했습니다.
 
