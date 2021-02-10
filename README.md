@@ -126,11 +126,12 @@ JUnit + MockK 라이브러리를 사용했습니다.
 
 ## Dark Theme
 
-![initial](https://github.com/JakeRoh/LocalWeather/blob/master/image/localweather_light.png)
+<img src="https://github.com/rohjk/LocalWeather/blob/master/image/localweather_light.png" width="200">
 Light Theme
 
 
-![initial](https://github.com/JakeRoh/LocalWeather/blob/master/image/localweather_dark.png)
+<img src="https://github.com/rohjk/LocalWeather/blob/master/image/localweather_dark.png" width="200">
 Dark Theme
+
 
 Dark Theme를 고려하여 Color를 light, night로 구분하여 작성하였습니다.
